@@ -1,0 +1,41 @@
+.container {
+  max-width: 960px;
+  margin: 0px auto;
+}
+.header_gap {
+  padding: 2%;
+}
+.app_header {
+  height: auto !important;
+  background: #fff;
+  box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16),
+    0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
+}
+
+.centerized {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background: #f0f2f5;
+}
+
+img {
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  &-track {
+    background: #f1f1f1;
+  }
+  &-thumb {
+    background: #999;
+    &:hover {
+      background: #68b423;
+    }
+  }
+}

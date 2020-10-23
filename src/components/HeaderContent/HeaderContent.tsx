@@ -16,10 +16,7 @@ const HeaderContent: React.FC = () => {
     const keyword = searchBar.current?.input.value;
     if (keyword?.length) {
       dispatch(getKeyWord(keyword));
-      router.push({
-        pathname: "/",
-        query: { page: 1 },
-      });
+      router.push("/");
     }
   };
 
@@ -27,10 +24,7 @@ const HeaderContent: React.FC = () => {
     const keyword = e.target.value;
     if (!keyword.length) {
       dispatch(resetKeyWord());
-      router.push({
-        pathname: "/",
-        query: { page: 1 },
-      });
+      router.push("/");
     }
   };
 

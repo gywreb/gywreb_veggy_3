@@ -3,6 +3,7 @@ import { BackTop, Button, Layout } from "antd";
 import "antd/dist/antd.css";
 import type { AppProps } from "next/app";
 import { Router } from "next/dist/client/router";
+import Head from "next/head";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import { Provider } from "react-redux";
@@ -30,6 +31,9 @@ Router.events.on("routeChangeError", () => {
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
+      <Head>
+        <title>Veggy</title>
+      </Head>
       <Layout>
         <Layout.Header className="app_header">
           <HeaderContent />

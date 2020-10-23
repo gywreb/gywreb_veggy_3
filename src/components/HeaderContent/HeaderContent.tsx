@@ -3,25 +3,30 @@ import { Button, Col, Input, Row } from "antd";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import React, { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { getKeyWord, resetKeyWord } from "../../store/slices/products";
 import styles from "./HeaderContent.module.scss";
 
 const HeaderContent: React.FC = () => {
+  const dispatch = useDispatch();
   const searchBar = useRef<Input>(null);
   const router = useRouter();
 
   const handleSearch = () => {
     const keyword = searchBar.current?.input.value;
     if (keyword?.length) {
+      dispatch(getKeyWord(keyword));
       router.push({
         pathname: "/",
-        query: { page: 1, keyword },
+        query: { page: 1 },
       });
     }
   };
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const keyword = e.target.value;
-    if (!keyword.length && router.query.keyword) {
+    if (!keyword.length) {
+      dispatch(resetKeyWord());
       router.push({
         pathname: "/",
         query: { page: 1 },
@@ -45,12 +50,11 @@ const HeaderContent: React.FC = () => {
             placeholder="Search for products"
             size="large"
             ref={searchBar}
-            defaultValue={router.query.keyword || ""}
             onChange={handleSearchInput}
             onSearch={handleSearch}
             onPressEnter={handleSearch}
             enterButton
-            disabled={router.pathname === "/" ? false : true}
+            disabled={router.pathname === "/product/[id]" ? true : false}
           />
         </Col>
         <Col span={3}>

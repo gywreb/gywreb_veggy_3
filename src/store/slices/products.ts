@@ -46,7 +46,7 @@ export const loadProducts = (): IGetProductsThunk => async (dispatch) => {
   dispatch(requestProducts());
   try {
     const { data } = await axios({
-      url: "http://localhost:3000/api/products",
+      url: "https://gywreb-veggy-3.vercel.app/api/products",
     });
     dispatch(requestProductsSuccess(data || []));
   } catch (error) {

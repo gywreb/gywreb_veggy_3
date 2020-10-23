@@ -1,5 +1,14 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .card {
   &_body {
+    animation: fadeIn 0.8s;
     overflow: hidden;
     img {
       transition: all 0.3s;

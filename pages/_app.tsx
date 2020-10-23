@@ -4,7 +4,7 @@ import "antd/dist/antd.css";
 import type { AppProps } from "next/app";
 import { Router } from "next/dist/client/router";
 import NProgress from "nprogress";
-// import "nprogress/nprogress.css";
+import "nprogress/nprogress.css";
 import { Provider } from "react-redux";
 import HeaderContent from "../src/components/HeaderContent/HeaderContent";
 import store from "../src/store/store";
@@ -12,7 +12,7 @@ import "../styles/global.scss";
 
 NProgress.configure({
   showSpinner: false,
-  trickleSpeed: 100,
+  trickleSpeed: 80,
 });
 
 Router.events.on("routeChangeStart", () => {

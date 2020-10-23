@@ -42,11 +42,17 @@ const {
 
 export const { getKeyWord, resetKeyWord } = slice.actions;
 
+const baseURL =
+  process.env.NODE_ENV === "production"
+    ? "https://gywreb-veggy-3.vercel.app"
+    : "http://localhost:3000";
+
 export const loadProducts = (): IGetProductsThunk => async (dispatch) => {
   dispatch(requestProducts());
   try {
     const { data } = await axios({
-      url: "https://gywreb-veggy-3.vercel.app/api/products",
+      baseURL,
+      url: "api/products",
     });
     dispatch(requestProductsSuccess(data || []));
   } catch (error) {
